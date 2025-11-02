@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<!-- PASSWORD SCREEN -->
 <div id="password-screen" class="panel active">
   <h1 class="title">Enter the secret code to unlock your surprise 🎁</h1>
   <p class="lead">Type the password to continue...</p>
@@ -21,14 +20,11 @@
   <p id="pwdMsg" class="hint"></p>
 </div>
 
-<!-- MAIN APP -->
 <main id="app" style="display: none; width: 100%;">
   
-  <!-- SCENE 1: Warm Birthday Greeting -->
   <section id="scene-1" class="panel active">
     <h1 class="title">Happy Birthday, Sean! 💚🎂</h1>
     
-    <!-- Scattered Images -->
     <img src="assets/images/snoopy.png" alt="Snoopy" class="scattered-img" style="top: 5%; left: 3%;">
     <img src="assets/images/yogurt.png" alt="Yogurt" class="scattered-img" style="top: 20%; right: 5%;">
     <img src="assets/images/kartrider.png" alt="KartRider" class="scattered-img" style="bottom: 15%; left: 8%;">
@@ -48,11 +44,9 @@
     </div>
   </section>
 
-  <!-- SCENE 2: Typewriter -->
   <section id="scene-2" class="panel">
     <h2 class="title small">Parang pelikula minsan no?</h2>
     
-    <!-- Scattered Images -->
     <img src="assets/images/martin1.png" alt="Fave 1" class="scattered-img" style="top: 10%; right: 10%;">
     <img src="assets/images/mingyu1.png" alt="Fave 2" class="scattered-img" style="bottom: 15%; left: 5%;">
     <img src="assets/images/conrad1.png" alt="Fave 3" class="scattered-img" style="top: 8%; left: 12%;">
@@ -65,11 +59,9 @@
     </div>
   </section>
 
-  <!-- SCENE 3: Greeting Message -->
   <section id="scene-3" class="panel">
     <h2 class="title small">So before anything else... 💌</h2>
     
-    <!-- Scattered Images -->
     <img src="assets/images/conrad2.png" alt="Fave 4" class="scattered-img" style="top: 8%; left: 5%;">
     <img src="assets/images/martin2.png" alt="Fave 5" class="scattered-img" style="top: 12%; right: 8%;">
     <img src="assets/images/mingyu2.png" alt="Fave 6" class="scattered-img" style="bottom: 10%; right: 10%;">
@@ -88,12 +80,10 @@
     </div>
   </section>
 
-  <!-- SCENE 4: Interactive Cake -->
   <section id="scene-4" class="panel">
     <h2 class="title small">Tap the cake to add candles 🕯️</h2>
     <p class="lead" id="cakeMsg">Click anywhere on the cake!</p>
     
-    <!-- Scattered Images -->
     <img src="assets/images/keyk1.png" alt="Fave 7" class="scattered-img" style="top: 10%; left: 5%;">
     <img src="assets/images/keyk2.png" alt="Fave 8" class="scattered-img" style="top: 15%; right: 8%;">
     <img src="assets/images/keyk3.png" alt="Fave 9" class="scattered-img" style="bottom: 12%; left: 10%;">
@@ -114,11 +104,9 @@
     </div>
   </section>
 
-  <!-- SCENE 5: Why I Like You -->
   <section id="scene-5" class="panel">
     <h2 class="title small">Bakit nga ba kita nagustuhan? 💭</h2>
     
-    <!-- Scattered Images -->
     <img src="assets/images/hart1.png" alt="Spider-Man" class="scattered-img" style="top: 5%; left: 5%;">
     <img src="assets/images/hart2.png" alt="Fave 1" class="scattered-img" style="top: 10%; right: 8%;">
     <img src="assets/images/hart3.png" alt="Fave 2" class="scattered-img" style="bottom: 10%; left: 10%;">
@@ -174,7 +162,6 @@
 
 </main>
 
-<!-- CHAT POPUP (appears after blowing candles) -->
 <div id="chatPopup" class="chat-popup">
   <div class="chat-header">
     <div class="chat-avatar">💌</div>
@@ -193,7 +180,6 @@
   <button class="chat-open-btn" id="openSecretMessage">Open Message 💚</button>
 </div>
 
-<!-- PASSWORD MODAL FOR SECRET MESSAGE -->
 <div id="secretModal" class="modal">
   <div class="modal-content">
     <button class="modal-close" id="closeSecretModal">✕</button>
@@ -205,7 +191,6 @@
   </div>
 </div>
 
-<!-- CONFESSION MODAL -->
 <div id="confessionModal" class="modal">
   <div class="modal-content confession-content">
     <button class="modal-close" id="closeConfessionModal">✕</button>
@@ -230,7 +215,6 @@
 
 <canvas id="confettiCanvas"></canvas>
 
-<!-- Audio elements -->
 <audio id="bgRomcom" loop>
   <source src="assets/music/romcom.mp3" type="audio/mpeg">
 </audio>
