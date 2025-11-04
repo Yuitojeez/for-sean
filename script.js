@@ -9,6 +9,7 @@ const pwdMsg = document.getElementById('pwdMsg');
 
 // Audio elements
 const bgRomcom = document.getElementById('bgRomcom');
+const bgRomcom2 = document.getElementById('bgRomcom2');
 const bgBirthday = document.getElementById('bgBirthday');
 
 // Check password
@@ -22,6 +23,9 @@ function checkPassword() {
   if (val === correctPass) {
     pwdScreen.style.display = 'none';
     app.style.display = 'block';
+    // Start the animation for Spider-Man and avocado when page loads
+    document.getElementById('spiderman').classList.add('animate');
+    document.getElementById('dancing-avocado').classList.add('animate');
     bgRomcom.play().catch(() => {
       console.log('Autoplay blocked');
     });
@@ -52,10 +56,18 @@ function showScene(sceneKey) {
   scenes[sceneKey].classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
   
+  // Stop all music first
+  bgRomcom.pause();
+  bgRomcom2.pause();
+  bgBirthday.pause();
+  
   if (sceneKey === 4) {
-    bgRomcom.pause();
+    // Birthday song scene - music handled by blowOutCandles
+  } else if (sceneKey === 5) {
+    // Reasons page - romcom1 plays
+    bgRomcom.play().catch(() => {});
   } else {
-    bgBirthday.pause();
+    // Other scenes - romcom1 plays
     bgRomcom.play().catch(() => {});
   }
 }
@@ -337,6 +349,12 @@ function checkSecretPassword() {
   const val = secretPwdInput.value.trim().toLowerCase();
   if (val === correctPass) {
     secretModal.style.display = 'none';
+    
+    // Start playing romcom1 right away when secret message is opened
+    bgBirthday.pause();
+    bgRomcom.currentTime = 0;
+    bgRomcom.play().catch(() => {});
+    
     showConfessionModal();
   } else {
     secretPwdMsg.textContent = "Wrong password! Try again 😅";
@@ -356,6 +374,21 @@ const heartsContainer = document.getElementById('heartsContainer');
 function showConfessionModal() {
   confessionModal.style.display = 'block';
   startFloatingHearts();
+  
+  // Play romcom2 when confession is shown
+  bgRomcom.pause();
+  bgRomcom2.currentTime = 0;
+  bgRomcom2.play().catch(() => {});
+  
+  // Animate confession text slowly
+  const confLines = document.querySelectorAll('.confLine');
+  confLines.forEach((line, index) => {
+    line.style.opacity = '0';
+    setTimeout(() => {
+      line.style.opacity = '1';
+      line.style.transform = 'translateY(0)';
+    }, index * 2000); // Slower appearance - 2 seconds between each line
+  });
 }
 
 closeConfessionModalBtn.addEventListener('click', () => {
@@ -364,6 +397,8 @@ closeConfessionModalBtn.addEventListener('click', () => {
 
 continueToReasonsBtn.addEventListener('click', () => {
   confessionModal.style.display = 'none';
+  // Stop romcom2 when moving to reasons page
+  bgRomcom2.pause();
   showScene(5);
   revealReasons();
 });
